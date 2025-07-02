@@ -3,7 +3,8 @@
 
 # How is it User-friendly?
   The app allows the user to easily enter the password.
-    -It advices the user about the improvements to password that can be made by the user.
+    
+  - It advices the user about the improvements to password that can be made by the user.
 
 ------
 
@@ -19,7 +20,7 @@ After Checking these it scores the strengthness-level on 0-6.
 ------
 
 ## License
-See included LICENSE.md for more details.
+See included [LICENSE.md](./LICENSE.md) file for more details.
 
 
 ## Author: Silven Mohan

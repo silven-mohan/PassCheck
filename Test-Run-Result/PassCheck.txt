@@ -1,1 +1,20 @@
+Run with Strong Password:
 
+Enter your password:
+Your Password Strength is: Strong.
+
+Run with Moderate Password:
+
+Enter your password:
+Your Password is missing Special Characters.
+Your Password is missing Spaces.
+Your Password Strength is: Moderate.
+
+Run with Poor Password:
+
+Enter your password:
+Your Password length is less than 8 Characters.
+Your Password is missing Digits.
+Your Password is missing Special Characters.
+Your Password is missing Spaces.
+Your Password Strength is: Poor.

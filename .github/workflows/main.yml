@@ -1,0 +1,75 @@
+name: C Build and Run
+
+on: 
+  push:
+    paths:
+      - '**/*.c'
+      - '**.yml'
+    branches:
+      - main
+    tags-ignore:
+      -'**'
+  workflow_dispatch:
+
+permissions:
+  contents: write  
+
+jobs:
+  build:
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install GCC(Compilation)
+        run: sudo apt-get install -y build-essential
+
+      # Compile PassCheck.c
+
+      - name: Compile PassCheck.c
+        run: gcc PassCheck.c -o PassCheck
+
+      # Run PassCheck
+
+      # Strong Password Check
+
+      - name: Run PassCheck with Strong Password
+        run: |
+          echo -e "Run with Strong Password:\n" > Test-Run-Result/PassCheck.txt
+          echo "12Silven Mohan." | ./PassCheck >> Test-Run-Result/PassCheck.txt
+
+      # Moderate Password Check
+      
+      - name: Run PassCheck with Moderate Password
+        run: |
+            echo -e "\n\nRun with Moderate Password:\n" >> Test-Run-Result/PassCheck.txt
+            echo "12Silven" | ./PassCheck >> Test-Run-Result/PassCheck.txt
+
+      # Poor Password Check
+
+      - name: Run PassCheck with Poor Password
+        run: |
+          echo -e "\n\nRun with Poor Password:\n" >> Test-Run-Result/Passcheck.txt
+          echo "Silven" | ./PassCheck >> Test-Run-Result/PassCheck.txt
+
+      # Push Test Run Results to Repo
+
+      - name: Upload PassCheck Test Run Results to Repo
+        uses: actions/upload-artifact@v4
+        with:
+          name: Push PassCheck Test-Run-Result
+          path: Test-Run-Result/PassCheck.txt
+      - name: Push PassCheck.txt to Repo
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${TOKEN}@github.com/${{ github.repository }}
+          git add Results/NS_NumCheck.txt
+          git commit -m "Update PassCheck output" [skip ci] || echo "No changes to commit"
+          git push
+      
+    

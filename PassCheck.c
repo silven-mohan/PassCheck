@@ -5,11 +5,11 @@
 #include<string.h>
 #include<ctype.h>
 
-void main()
+int main()
 {
 	int len, strength;
 	char pass[100];
-	system("cls");
+	/* system("cls"); */
 	printf("Enter your password:");
 	gets(pass);
 	strength=Passchecks(pass);
@@ -25,6 +25,8 @@ void main()
 	{
 		printf("\nYour Password Strength is: Strong.");
 	}
+
+	return 0;
 }
 
 int Passchecks(char passc[100])

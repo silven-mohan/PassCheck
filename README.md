@@ -1,4 +1,11 @@
 # PassCheck
+
+----
+
+![CI](https://github.com/silven-mohan/PassCheck/actions/workflows/.github/workflows/main.yml/badge.svg)
+
+----
+
   PassCheck is an User-friendly CLI-based app which checks the strength of the password.
 
 # How is it User-friendly?

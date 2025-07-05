@@ -27,7 +27,10 @@ After Checking these it scores the strengthness-level on 0-6.
 ------
 
 ## License
-See included [LICENSE.md](./LICENSE.md) file for more details.
+See included [LICENSE](./LICENSE) file for more details.
 
+------
+
+------
 
 ## Author: Silven Mohan
